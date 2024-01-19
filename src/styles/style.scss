@@ -1,0 +1,177 @@
+@use "./reset.scss";
+@use "./variaveis.scss";
+
+@mixin fundoTransparente($fontSize: 1rem) {
+  backdrop-filter: blur(8px) saturate(200%);
+  background-color: rgba(17, 25, 40, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+body{
+  background-image: url("../images/banner_blur01.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  font-family: variaveis.$fontePrincipal;
+
+  color: variaveis.$corTexto;
+
+  width: 100h;
+
+  overflow-y: hidden;
+}
+
+hr{
+  margin: 0 auto 2rem;
+
+  width: 70%;
+
+  opacity: .4;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;  
+
+  margin: 0 auto;
+  padding:1.2rem 0;
+
+  max-width: 1024px;
+  width: 100%;
+
+  &__branding{
+    display: flex; 
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__img{
+    width: 16rem;
+  }
+
+  &__nav{
+    ul{
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      font-weight: bold;
+
+      list-style: none;
+
+      a{
+        text-decoration: none;
+
+        color: variaveis.$corTexto;
+
+        transition: all .3s ease;
+
+        &:hover{
+          font-weight: normal;
+
+          transition: all .3s ease;
+        }
+      }
+    }
+  }
+
+  &__infos{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    &__search{
+      backdrop-filter: blur(0px) saturate(200%);
+
+      background-color: rgba(255, 255, 255, 0.2);
+      color: variaveis.$corTexto;
+
+      border: 1px solid rgba(209, 213, 219, 0.3);
+      border-radius: .5rem;
+
+      padding: .3rem .5rem;
+
+      width: 14rem;
+
+      outline: none;
+    }
+
+    &__user{
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+
+      i{
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+.conteudo{
+  @include fundoTransparente();
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+
+  max-width: 1200px;
+
+  margin:  0 auto 5rem;
+  padding: 3rem 2rem 3rem;
+
+  position: relative;
+
+  &__principal{
+    
+    &__titulo{
+      font-size: 3rem;
+    }
+
+    &__button{
+      padding: .8rem 2rem;
+      margin: 1.8rem 0;
+
+      display: flex;
+      align-items: center;
+
+      font-size: 1.3rem;
+      letter-spacing: .1rem;
+
+      background-color: variaveis.$corFundoButton;
+      color: variaveis.$corTexto;
+      
+      border: none;
+      border-radius: 1.5rem;
+
+      cursor: pointer;
+
+      &:hover{
+        background-color: variaveis.$corButtonHover;
+      }
+
+      a{
+        text-decoration: none;
+        
+        color: variaveis.$corTexto;
+
+        i{
+          padding-right: 1rem;
+        }
+      }
+    }
+
+    &__texto{
+      letter-spacing: .1rem;
+    }
+  }
+}
+
+.carousel{
+  max-width: 34rem;
+  
+  position: absolute;
+  bottom: 4rem;
+  right: 4rem;
+}
